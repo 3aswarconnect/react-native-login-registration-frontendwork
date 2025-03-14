@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, Alert } from 'react-native';
 import axios from 'axios';
-
+import Home from './Home';
+import { useNavigation } from '@react-navigation/native';
 const AuthScreen = () => {
+  const navigation = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isRegister, setIsRegister] = useState(false);
@@ -11,6 +13,7 @@ const AuthScreen = () => {
     try {
       const response = await axios.post('http://192.168.76.183:4000/signin', { email, password });
       Alert.alert(response.data.message);
+      navigation.navigate('Homes', { email });
     } catch (error) {
       Alert.alert('Error', error.response?.data.message || 'Something went wrong');
     }
