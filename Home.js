@@ -5,11 +5,11 @@ import { useRoute, useNavigation } from '@react-navigation/native';
 const Home = () => {
   const route = useRoute();
   const navigation = useNavigation();
-  const { email } = route.params || {}; // Get email from navigation params
+  const { email,username } = route.params || {}; // Get email from navigation params
 
   return (
     <View style={{ padding: 20 }}>
-      <Text>Welcome, {email || 'Guest'}!</Text>
+      <Text>Welcome, {email || username || 'Guest'}!</Text>
       <Button title="Logout" onPress={() => navigation.navigate('Auth')} />
     </View>
   );

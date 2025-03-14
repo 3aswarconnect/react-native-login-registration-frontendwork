@@ -8,12 +8,13 @@ const AuthScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isRegister, setIsRegister] = useState(false);
+  const [username, setUsername] = useState('');
 
   const handleSignIn = async () => {
     try {
       const response = await axios.post('http://192.168.76.183:4000/signin', { email, password });
       Alert.alert(response.data.message);
-      navigation.navigate('Homes', { email });
+      navigation.navigate('Homes', { email ,username});
     } catch (error) {
       Alert.alert('Error', error.response?.data.message || 'Something went wrong');
     }
@@ -21,8 +22,9 @@ const AuthScreen = () => {
 
   const handleRegister = async () => {
     try {
-      const response = await axios.post('http://192.168.76.183:4000/register', { email, password });
+      const response = await axios.post('http://192.168.76.183:4000/register', { username,email, password });
       Alert.alert(response.data.message);
+      navigation.navigate('Homes', { email ,username});
     } catch (error) {
       Alert.alert('Error', error.response?.data.message || 'Something went wrong');
     }
@@ -32,6 +34,12 @@ const AuthScreen = () => {
     <View style={{ padding: 20 }}>
       <Text>{isRegister ? 'Register' : 'Sign In'}</Text>
       <TextInput placeholder="Email" value={email} onChangeText={setEmail} style={{ borderBottomWidth: 1 }} />
+      <TextInput
+          placeholder="Username"
+          value={username}
+          onChangeText={setUsername}
+          style={{ borderBottomWidth: 1, marginBottom: 10 }}
+        />
       <TextInput
         placeholder="Password"
         value={password}
