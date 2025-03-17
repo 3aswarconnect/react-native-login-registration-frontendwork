@@ -30,6 +30,9 @@
         "projectId": "95e41fd0-6caf-4b96-a361-45aacfcab54f"
       }
     },
-    "owner": "easwarconnect"
+    "owner": "easwarconnect",
+    "plugins": [
+      "expo-video"
+    ]
   }
 }

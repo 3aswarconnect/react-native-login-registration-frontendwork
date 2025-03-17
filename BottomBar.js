@@ -4,13 +4,10 @@ import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import UploadScreen from './UploadScreen';
 const Tab = createBottomTabNavigator();
-
+import ReelsScreen from './ReelsScreen';
 // Screens
-const ReelsScreen = () => (
-  <SafeAreaView style={styles.screen}>
-    <Text style={styles.text}>Reels</Text>
-  </SafeAreaView>
-);
+
+
 const MemesScreen = () => (
   <SafeAreaView style={styles.screen}>
     <Text style={styles.text}>Memes</Text>
