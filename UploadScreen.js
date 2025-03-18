@@ -40,7 +40,7 @@ const UploadScreen = () => {
     });
     
     try {
-      const response = await axios.post('http://192.168.7.183:4000/upload', formData, {
+      const response = await axios.post('http://192.168.22.183:4000/upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       alert(response.data.message);

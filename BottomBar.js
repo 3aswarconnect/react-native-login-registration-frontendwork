@@ -5,44 +5,37 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import UploadScreen from './UploadScreen';
 const Tab = createBottomTabNavigator();
 import ReelsScreen from './ReelsScreen';
-// Screens
+import MemesScreen from './MemesScreen';
+import ProfileScreen from './ProfileScreen';
 
-
-const MemesScreen = () => (
-  <SafeAreaView style={styles.screen}>
-    <Text style={styles.text}>Memes</Text>
-  </SafeAreaView>
-);
-
-const ProfileScreen = () => (
-  <SafeAreaView style={styles.screen}>
-    <Text style={styles.text}>Profile</Text>
-  </SafeAreaView>
-);
 
 const BottomBar = ({ route }) => {
     const userId = route?.params?.userId
+    const username=route?.params?.username
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }}>
       <Tab.Screen 
         name="Reels" 
         component={ReelsScreen} 
+        initialParams={{ userId }}
         options={{ tabBarIcon: ({ color }) => <Icon name="movie" color={color} size={24} /> }}
       />
       <Tab.Screen 
         name="Memes" 
         component={MemesScreen} 
+        initialParams={{ userId }}
         options={{ tabBarIcon: ({ color }) => <Icon name="emoticon" color={color} size={24} /> }}
       />
       <Tab.Screen 
         name="Upload" 
         component={UploadScreen} 
-        initialParams={{ userId }} 
+        initialParams={{ userId, username }}  
         options={{ tabBarIcon: ({ color }) => <Icon name="cloud-upload" color={color} size={24} /> }}
       />
       <Tab.Screen 
         name="Profile" 
         component={ProfileScreen} 
+        initialParams={{ userId ,username}}
         options={{ tabBarIcon: ({ color }) => <Icon name="account" color={color} size={24} /> }}
       />
     </Tab.Navigator>

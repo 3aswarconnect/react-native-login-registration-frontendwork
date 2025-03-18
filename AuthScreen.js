@@ -17,7 +17,7 @@ const AuthScreen = () => {
       return Alert.alert('Error', 'Please enter username/email and password.');
     }
     try {
-      const response = await axios.post('http://192.168.7.183:4000/signin', { identifier, password });
+      const response = await axios.post('http://192.168.22.183:4000/signin', { identifier, password });
       Alert.alert(response.data.message);
       navigation.navigate('Homes', { 
         userId: response.data.userId, 
@@ -37,7 +37,7 @@ const AuthScreen = () => {
       return Alert.alert('Error', 'Passwords do not match.');
     }
     try {
-      const response = await axios.post('http://192.168.7.183:4000/register', { username, email, password });
+      const response = await axios.post('http://192.168.22.183:4000/register', { username, email, password });
       Alert.alert(response.data.message);
       navigation.navigate('Homes', { 
         userId: response.data.userId, 

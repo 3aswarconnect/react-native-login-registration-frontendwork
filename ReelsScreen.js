@@ -53,7 +53,7 @@ const ReelsScreen = () => {
 
   const fetchVideos = async (category) => {
     try {
-      const response = await axios.get(`http://192.168.7.183:4000/reels?category=${category}`);
+      const response = await axios.get(`http://192.168.22.183:4000/reels?category=${category}`);
       setVideos(response.data);
     } catch (error) {
       console.error('Error fetching videos:', error);
