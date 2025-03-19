@@ -20,19 +20,21 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.easwarconnect.P"
+      "package": "com.easwarconnect.P",
+      "permissions": []
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "931be998-68d8-43c0-983a-a26881e427fe"
+        "projectId": "57e823be-781b-47bc-8cfc-24de861e3ba1"
       }
     },
     "owner": "easwarconnect",
     "plugins": [
-      "expo-video"
+      "expo-video",
+      "react-native-video"
     ]
   }
 }

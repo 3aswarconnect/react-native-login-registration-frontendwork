@@ -19,6 +19,8 @@ const AuthScreen = () => {
     try {
       const response = await axios.post('http://192.168.22.183:4000/signin', { identifier, password });
       Alert.alert(response.data.message);
+      console.log('SignIn Response:', response.data); // Debugging
+
       navigation.navigate('Homes', { 
         userId: response.data.userId, 
         email: response.data.email, 
@@ -38,6 +40,7 @@ const AuthScreen = () => {
     }
     try {
       const response = await axios.post('http://192.168.22.183:4000/register', { username, email, password });
+      
       Alert.alert(response.data.message);
       navigation.navigate('Homes', { 
         userId: response.data.userId, 
